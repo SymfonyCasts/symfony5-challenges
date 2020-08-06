@@ -7,10 +7,14 @@ extending_chapter1a:
   features:
     multiple_choice:
       choices:
-        a: `symfony new my_project`
-        b: `composer create-symfony skeleton my_project`
-        c: `composer create-project symfony/skeleton my_project`
-        d: Both A & C
+        a: |
+          `symfony new my_project`
+        b: |
+          `composer create-symfony skeleton my_project`
+        c: |
+          `composer create-project symfony/skeleton my_project`
+        d: |
+          Both A & C
       correct: d
 
 extending_chapter1b:
@@ -23,10 +27,14 @@ extending_chapter1b:
   features:
     multiple_choice:
       choices:
-        a: `symfony/console`
-        b: `symfony/framework-bundle`
-        c: `symfony/http-kernel`
-        d: All packages listed above are included in `symfony/skeleton`
+        a: |
+          `symfony/console`
+        b: |
+          `symfony/framework-bundle`
+        c: |
+          `symfony/http-kernel`
+        d: |
+          All packages listed above are included in `symfony/skeleton`
       correct: d
 
 extending_chapter2a:
@@ -35,10 +43,14 @@ extending_chapter2a:
   features:
     multiple_choice:
       choices:
-        a: `public/app.php`
-        b: `public/index.php`
-        c: `src/Controller/DefaultController.php`
-        d: `composer.json`
+        a: |
+          `public/app.php`
+        b: |
+          `public/index.php`
+        c: |
+          `src/Controller/DefaultController.php`
+        d: |
+          `composer.json`
       correct: b
 
 extending_chapter2b:
@@ -51,10 +63,14 @@ extending_chapter2b:
   features:
     multiple_choice:
       choices:
-        a: `php -S 127.0.0.1:8000 -t public/`
-        b: `symfony server:start`
-        c: `symfony serve`
-        d: All commands above run the local web server
+        a: |
+          `php -S 127.0.0.1:8000 -t public/`
+        b: |
+          `symfony server:start`
+        c: |
+          `symfony serve`
+        d: |
+          All commands above run the local web server
       correct: d
 
 extending_chapter3a:
@@ -63,10 +79,14 @@ extending_chapter3a:
   features:
     multiple_choice:
       choices:
-        a: `src/routes.yaml`
-        b: `composer.json`
-        c: `public/index.php`
-        d: `config/routes.yaml`
+        a: |
+          `src/routes.yaml`
+        b: |
+          `composer.json`
+        c: |
+          `public/index.php`
+        d: |
+          `config/routes.yaml`
       correct: d
 
 extending_chapter3b:
@@ -75,10 +95,14 @@ extending_chapter3b:
   features:
     multiple_choice:
       choices:
-        a: Any content as a `string` type
-        b: An instance of `Symfony\Component\HttpFoundation\Response`
-        c: `null`
-        d: An action
+        a: |
+          Any content as a `string` type
+        b: |
+          An instance of `Symfony\Component\HttpFoundation\Response`
+        c: |
+          `null`
+        d: |
+          An action
       correct: b
 
 extending_chapter4:
@@ -87,10 +111,14 @@ extending_chapter4:
   features:
     multiple_choice:
       choices:
-        a: `@Route("/user/{username}")`
-        b: `@Route("/blog/*.")`
-        c: `@Route("/user/<username>")`
-        d: `@Route("/user/(username)")`
+        a: |
+          `@Route("/user/{username}")`
+        b: |
+          `@Route("/blog/*.")`
+        c: |
+          `@Route("/user/<username>")`
+        d: |
+          `@Route("/user/(username)")`
       correct: a
 
 extending_chapter5:
@@ -102,10 +130,14 @@ extending_chapter5:
   features:
      multiple_choice:
        choices:
-         a: `bin/console debug:routes`
-         b: `bin/console debug:router`
-         c: `bin/console router:show`
-         d: `bin/console routes:list`
+         a: |
+           `bin/console debug:routes`
+         b: |
+           `bin/console debug:router`
+         c: |
+           `bin/console router:show`
+         d: |
+           `bin/console routes:list`
        correct: b
 
 extending_chapter6a:
@@ -133,10 +165,14 @@ extending_chapter6b:
   features:
     multiple_choice:
       choices:
-        a: The `sensiolabs/security-checker` package
-        b: The `security/check` package
-        c: The `symfony/security` package
-        d: The `symfony/requirements-checker` package
+        a: |
+          The `sensiolabs/security-checker` package
+        b: |
+          The `security/check` package
+        c: |
+          The `symfony/security` package
+        d: |
+          The `symfony/requirements-checker` package
       correct: a
 
 extending_chapter8a:
@@ -178,10 +214,14 @@ extending_chapter8c:
   features:
     multiple_choice:
       choices:
-        a: `./data`
-        b: `%kernel.project_dir%/data`
-        c: `%kernel.root_dir%/data`
-        d: `%kernel.data_dir%`
+        a: |
+          `./data`
+        b: |
+          `%kernel.project_dir%/data`
+        c: |
+          `%kernel.root_dir%/data`
+        d: |
+          `%kernel.data_dir%`
       correct: b
 
 extending_chapter9a:
@@ -212,10 +252,14 @@ extending_chapter9a:
   features:
     multiple_choice:
       choices:
-        a: An HTML code as a string that was rendered with Twig service
-        b: An object of type `Symfony\Component\HttpFoundation\Response`
-        c: An instance of a Twig template
-        d: Depends on specified flags on `render()` method call
+        a: |
+          An HTML code as a string that was rendered with Twig service
+        b: |
+          An object of type `Symfony\Component\HttpFoundation\Response`
+        c: |
+          An instance of a Twig template
+        d: |
+          Depends on specified flags on `render()` method call
       correct: b
 
 extending_chapter9b:
@@ -224,10 +268,14 @@ extending_chapter9b:
   features:
     multiple_choice:
       choices:
-        a: `{{ price }}`
-        b: `{% set language = 'PHP' %}`
-        c: `{* comment *}`
-        d: `{# incorrect #}`
+        a: |
+          `{{ price }}`
+        b: |
+          `{% set language = 'PHP' %}`
+        c: |
+          `{* comment *}`
+        d: |
+          `{# incorrect #}`
       correct: c
 
 extending_chapter9c:
@@ -243,10 +291,14 @@ extending_chapter9c:
   features:
     multiple_choice:
       choices:
-        a: `{% foreach comments as comment %}`
-        b: `{% for comments as comment %}`
-        c: `{% for index, comment in comments %}`
-        d: `{% for comments => comment %}`
+        a: |
+          `{% foreach comments as comment %}`
+        b: |
+          `{% for comments as comment %}`
+        c: |
+          `{% for index, comment in comments %}`
+        d: |
+          `{% for comments => comment %}`
       correct: c
 
 extending_chapter10a:
@@ -325,10 +377,14 @@ extending_chapter13:
   features:
     multiple_choice:
       choices:
-        a: `return $this->json([/* … */])`
-        b: `return new JsonResponse([/* … */])`
-        c: `return json_encode([/* … */])`
-        d: Both A & B are correct
+        a: |
+          `return $this->json([/* … */])`
+        b: |
+          `return new JsonResponse([/* … */])`
+        c: |
+          `return json_encode([/* … */])`
+        d: |
+          Both A & B are correct
       correct: d
 
 extending_chapter14:
@@ -349,10 +405,14 @@ extending_chapter14:
   features:
     multiple_choice:
       choices:
-        a: {{ block('parent') }}
-        b: {{ append() }}
-        c: {{ parent() }}
-        d: {% parent() %}
+        a: |
+          {{ block('parent') }}
+        b: |
+          {{ append() }}
+        c: |
+          {{ parent() }}
+        d: |
+          {% parent() %}
       correct: c
 
 extending_chapter15a:
@@ -362,10 +422,14 @@ extending_chapter15a:
   features:
     multiple_choice:
       choices:
-        a: `@Route("/api/articles/{id}", method="GET")`
-        b: `@Route("/api/articles/{id}", methods="GET")`
-        c: `@Route("/api/articles/{id}", methods=["GET"])`
-        d: `@Route("/api/articles/{id}", "GET")`
+        a: |
+          `@Route("/api/articles/{id}", method="GET")`
+        b: |
+          `@Route("/api/articles/{id}", methods="GET")`
+        c: |
+          `@Route("/api/articles/{id}", methods=["GET"])`
+        d: |
+          `@Route("/api/articles/{id}", "GET")`
       correct: b
 
 extending_chapter15b:
@@ -378,10 +442,14 @@ extending_chapter15b:
   features:
     multiple_choice:
       choices:
-        a: @Route("/user/{victor}")
-        b: @Route("/admin/user/{username}", methods="POST")
-        c: @Route("/admin/user/{username}", methods="GET")
-        d: Both B & C
+        a: |
+          @Route("/user/{victor}")
+        b: |
+          @Route("/admin/user/{username}", methods="POST")
+        c: |
+          @Route("/admin/user/{username}", methods="GET")
+        d: |
+          Both B & C
       correct: c
 
 extending_chapter16:
@@ -394,10 +462,14 @@ extending_chapter16:
   features:
     multiple_choice:
       choices:
-        a: `public function myEndpoint(\Twig\Environment $twig)`
-        b: `public function myEndpoint(\Twig\Template $twig)`
-        c: `public function myEndpoint(Twig\Twig $twig)`
-        d: `public function myEndpoint(Twig\Renderer $twig)`
+        a: |
+          `public function myEndpoint(\Twig\Environment $twig)`
+        b: |
+          `public function myEndpoint(\Twig\Template $twig)`
+        c: |
+          `public function myEndpoint(Twig\Twig $twig)`
+        d: |
+          `public function myEndpoint(Twig\Renderer $twig)`
       correct: a
 
 extending_chapter18:
@@ -409,8 +481,12 @@ extending_chapter18:
   features:
     multiple_choice:
       choices:
-        a: `yarn watch`
-        b: `encore run`
-        c: `yarn run encore dev --watch`
-        d: Both A & C
+        a: |
+          `yarn watch`
+        b: |
+          `encore run`
+        c: |
+          `yarn run encore dev --watch`
+        d: |
+          Both A & C
       correct: d

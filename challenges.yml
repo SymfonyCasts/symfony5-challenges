@@ -58,7 +58,7 @@ extending_chapter2b:
     What command does NOT run the local web server?
   explanation: |
     Both `symfony serve` and `symfony server:start` allow you to run the local web server.
-    The difference is that the last command just does not block your terminal and run it in
+    The difference is that the last command does not block your terminal and runs it in
     the background. You can achieve the same with `symfony serve -d`.
   features:
     multiple_choice:
@@ -125,8 +125,10 @@ extending_chapter5:
   question: |
     How can you list all the registered routes in your application using the console?
   explanation: |
-    Symfony's `bin/console` is very useful! Run `bin/console list debug` to see the list of all
-    commands avialable that could help you with debugging.
+    Symfony's `bin/console` is very useful!
+
+    > Run `bin/console list debug` to see the list of all commands avialable that
+    > could help you with debugging.
   features:
      multiple_choice:
        choices:
@@ -177,7 +179,7 @@ extending_chapter6b:
 
 extending_chapter8a:
   question: |
-    - Where are templates stored by default in a Symfony 5 application?
+    Where are templates stored by default in a Symfony 5 application?
   features:
     multiple_choice:
       choices:
@@ -205,7 +207,7 @@ extending_chapter8b:
 
 extending_chapter8c:
   question: |
-    Suppose we have a project that has a `data/` folter that exists at the root.
+    Suppose we have a project that has a `data/` folder that exists at the root.
     How can we build an absolute path in a Yaml configuration file that points to such path?
   explanation: |
     `%kernel.project_dir%` is a special configuration parameter that returns the absolute path of
@@ -322,14 +324,14 @@ extending_chapter10b:
     What can the Symfony Profiler NOT help you with out-of-the-box?
   explanation: |
     The Symfony Profiler and the Web Debug Toolbar that you can see when you are in `dev` mode at
-    the bottom of any page are just your best friends! They give you a lot of useful information.
+    the bottom of any page are your best friends! They give a lot of useful information.
   features:
     multiple_choice:
       choices:
-        a: Explain performance of your application with execution timeline
-        b: See logs that were created during the request
-        c: Know what events were dispatched during the request
-        d: See translations that were used during the request
+        a: Explain the performance of your application within the execution timeline
+        b: See logs that were created during a request
+        c: Know what events were dispatched during a request
+        d: See what translations were used during a request
         e: Symfony Profiler can help you with everything listed above
       correct: e
 
@@ -406,13 +408,13 @@ extending_chapter14:
     multiple_choice:
       choices:
         a: |
-          {{ block('parent') }}
+          `{{ block('parent') }}`
         b: |
-          {{ append() }}
+          `{{ append() }}`
         c: |
-          {{ parent() }}
+          `{{ parent() }}`
         d: |
-          {% parent() %}
+          `{% parent() %}`
       correct: c
 
 extending_chapter15a:
@@ -455,7 +457,7 @@ extending_chapter15b:
 extending_chapter16:
   question: |
     What type hint do you need to use to inject a Twig service into your controller’s endpoint
-    using the service's autowiring feature to be able it to render tempaltes?
+    using the service's autowiring feature to be able to render tempaltes?
   explanation: |
     That's right! `\Twig\Environment` is the correct service name for getting the Twig instance
     to render templates.

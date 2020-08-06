@@ -1,0 +1,166 @@
+- Chapter 1
+    - How to create a simple Symfony application:
+    - `symfony new my_project`
+    - `composer create-symfony skeleton my_project`
+    - `composer create-project symfony/skeleton my_project`
+    - > Both A & C
+    - Explanation: The recommended way to create Symfony applications is to use `symfony` binary, but you can also create a new project using Composer as well.
+    - What package does not come with default Symfony skeleton application?
+        - `symfony/console`
+        - `symfony/framework-bundle`
+        - `symfony/http-kernel`
+        - > All packages listed above are included in `symfony/skeleton`
+        - Explanation: `symfony/skeleton` does not require `symfony/http-kernel` package directly, but it requires `symfony/framework-bundle` package that in turn requires `symfony/http-kernel` and a few more. So, with `symfony/skeleton` you get `symfony/http-kernel` out-of-the-box
+- Chapter 2
+    - Which file is the default front controller in Symfony 5 applications?
+    - `public/app.php`
+    - > `public/index.php`
+    - `src/Controller/DefaultController.php`
+    - `composer.json`
+    - What command does NOT run the local web server?
+    - `php -S 127.0.0.1:8000 -t public/`
+    - `symfony server:start`
+    - `symfony serve`
+    - > All commands above run the local web server
+    - Explanation: Both `symfony serve` and `symfony server:start` allows you to run the local web server. The difference is that the last command just does not block your terminal and run it in the background. The same you can achieve with `symfony serve -d`
+- Chapter 3
+  - Where the default routes configurtation file is located in Symfony 5 applciations?
+  - `src/routes.yaml`
+  - `composer.json`
+  - `public/index.php`
+  - > `config/routes.yaml`
+  - What should every controller function return?
+  - Any content as a `string` type
+  - > An instance of `Symfony\Component\HttpFoundation\Response`
+  - `null`
+  - An action
+- Chapter 4
+  - What is the correct way to define wildcards for routes?
+  - > `@Route("/user/{username}")`
+  - `@Route("/blog/*.")`
+  - `@Route("/user/<username>")`
+  - `@Route("/user/(username)")`
+- Chapter 5
+    - How to list all the registered routes in your application?
+    - `bin/console debug:routes`
+    - > `bin/console debug:router`
+    - `bin/console router:show`
+    - `bin/console routes:list`
+    - Explanation: Symfony's `bin/console` may be very useful. Run `bin/console list debug` to see the list of all commands avialable that could help you with debugging.
+- Chapter 6
+    - Symfony Flex is:
+    - A Symfony component
+    - > A Composer plugin
+    - A methodology of development for new Symfony projects
+    - Explanation: Yes, Symfony Flex is the way to manage Symfony applications, but it's implemented as a simple Composer plugin that is based on Symfony Recipes, which are a set of automated instructions to integrate third-party packages into Symfony applications.
+    - What package does correspond to the `security-check` alias in `composer require security-check` when you use Symfony Flex?
+        - > `sensiolabs/security-checker` package
+        - `security/check` package
+        - `symfony/security` package
+        - `symfony/requirements-checker` package
+        - Explanation: If you’re not sure, you can always check it on https://flex.symfony.com/ website - it can search by package name or tag.
+- Chapter 7
+  - < nothing >
+- Chapter 8
+  - Where templates are stored by default in Symfony 5 applications?
+  - app/Resources/views/
+  - app/templates/
+  - > templates/
+  - src/Resources/views/
+  - What is the correct name of Twig HTML page?
+  - layout.html
+  - layout.twig
+  - > layout.html.twig
+  - layout.twig.html
+  Explanation: TODO... Probably a good idea to explain why we need that "html" in ".html.twig"?
+  - How to build an absolute path in Yaml configuration files to data/ directory that is located in the root of your project?
+      - `./data`
+      - > `%kernel.project_dir%/data`
+      - `%kernel.root_dir%/data`
+      - `%kernel.data_dir%`
+      - Explanation: `%kernel.project_dir%` is a special configuration parameter that returns the absolute path of the root directory of your Symfony project that you can use to build custom paths relative to the project’s root directory.
+- Chapter 9
+    - What does `$this->render(/* … */)` return when is called inside a Symfony controller that extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController `?
+    - An HTML code as a string that was rendered with Twig service
+    - > An object of `Symfony\Component\HttpFoundation\Response`
+    - An instance of Twig template
+    - Depends on specified flags on `render()` method call
+    - Explanation: Symfony controller is a PHP function you create that reads information from the Request object and creates and returns a Response object. It should always return an instance of `Symfony\Component\HttpFoundation\Response`
+    - What syntax is incorrect in twig
+      - `{{ price }}`
+      - `{% set language = 'PHP' %}`
+      - > `{* comment *}`
+      - `{# incorrect #}`
+    - How to iterate over an array in Twig templates?
+        - `{% foreach comments as comment %}`
+        - `{% for comments as comment %}`
+        - > `{% for index, comment in comments %}`
+        - `{% for comments => comment %}`
+        - Explanation: In Twig, to iterate over an array you need to use `{% for comment in comments %}` syntax. But if you also want to get access to array keys during the iteration like you can do with foreach in PHP code: `foreach ($comments as $index => $comment)` - you can do it with `{% for index, comment in comments %}` syntax where `index` is the key of the `comment` value.
+- Chapter 10
+    - What will happen if you call `dump()` PHP function w/o any arguments?
+    - > An error will be thrown as at least one argument is required
+    - It will print all known variables available at the line where it was called
+    - Nothing, this call will be just ignored, i.e. it returns an empty result
+    - System information will be printed
+    - Explanation: Yes, it will print all the available variables but only when you call it inside a Twig template! If you call this function in a PHP file - it will throw an error: "Too few arguments to function dump(), 0 passed and exactly 1 expected".
+                   - What can Symfony Profiler NOT help you with out-of-the-box?
+                       - Explain performance of your application with execution timeline
+                       - See logs that were created during the request
+                       - Know what events were dispatched during the request
+                       - See translations that were used during the request
+                       - > Symfony Profiler can help you with everything listed above
+                       - Explanation: Symfony Profiler and the Web Debug Toolbar that you can see in `dev` mode at the bottom of any page are just your best friends! They give you a lot of useful information.
+- Chapter 11
+    - How to build a link in Twig templates to `checkout.css` file that is stored in `public/css/` directory?
+    - > `<link href="{{ asset('css/checkout.css') }}">`
+    - `<link href="{{ css('checkout.css') }}">`
+    - `<link href="public/css/checkout.css">`
+    - Both A & C
+    - Explanation: Do not hardcode relative paths in your templates. Use `asset()` Twig function that helps you to build any link that is relative to the public/ directory correctly.
+- Chapter 12
+  - How to specify a name in route annotation so that you can build links to the route by its name, for example like `{{ path('app_homapge') }}` in Twig templates?
+  - `@Route("/user/profile", "app_user_profile")`
+  - `@Route("/user/profile", name:app_user_profile)`
+  - > `@Route("/user/profile", name="app_user_profile")`
+  - `@Route("/user/profile", name=app_user_profile)`
+- Chapter 13
+  - How to return JSON response in your endpoint when you extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` in your controller?
+  - `return $this->json([/* … */])`
+  - `return new JsonResponse([/* … */])`
+  - `return json_encode([/* … */])`
+  - > Both A & B are correct
+- Chapter 14
+  - How to append Twig block’s content from parent template instead of replacing it completely in child templates?
+  - {{ block('parent') }}
+  - {{ append() }}
+  - > {{ parent() }}
+  - {% parent() %}
+- Chapter 15
+    - How to make `@Route("/api/articles/{id}")` API endpoint only accessible for GET requests?
+    - `@Route("/api/articles/{id}", method="GET")`
+    - > `@Route("/api/articles/{id}", methods="GET")`
+    - `@Route("/api/articles/{id}", methods=["GET"])`
+    - `@Route("/api/articles/{id}", "GET")`
+    - What route will match the request if you open the next page in a browser: `https://localhost/admin/user/victor`
+    - @Route("/user/{victor}")
+    - @Route("/admin/user/{username}", methods="POST")
+    - > @Route("/admin/user/{username}", methods="GET")
+    - Both B & C
+    - Explanation: When you open a page in a browser - the browser sends a simple GET request. POST requests are more complex, you can send them via AJAX or using HTML forms setting `action` atribute to `POST`.
+- Chapter 16
+    - What typehint do you need to use to inject Twig service into your controller’s endpoint using service autowiring to be able to render tempaltes?
+    - > `public function myEndpoint(\Twig\Environment $twig)`
+    - `public function myEndpoint(\Twig\Template $twig)`
+    - `public function myEndpoint(Twig\Twig $twig)`
+    - `public function myEndpoint(Twig\Renderer $twig)`
+    - Explanation: Yes, `\Twig\Environment` is the correct service name for getting Twig instance to render templates
+- Chapter 17
+  - < nothing >
+- Chapter 18
+    - How to run the Webpack Encore?
+    - `yarn watch`
+    - `encore run`
+    - `yarn run encore dev --watch`
+    - > Both A & C
+    - Explanation: `yarn watch` is just a shortcut for running `yarn run encore dev --watch`, you can see it declared in your `package.json`.

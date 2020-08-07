@@ -42,7 +42,7 @@ extending_chapter2a:
           you create for different pages.
         d: |
           The `vendor/` directory holds all the 3rd-party library coe.
-      correct: b
+      correct: c
 
 extending_chapter2b:
   question: |

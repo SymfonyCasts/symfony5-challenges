@@ -140,7 +140,7 @@ extending_chapter6a:
     Correct! Symfony Flex is a tool to help construct Symfony applications, but it's implemented
     as a simple Composer plugin. The *biggest* super power of Flex is its recipe
     system: when you install a package, if that package has a recipe, it will
-    configure itself by adding configuration file or making other small changes
+    configure itself by adding configuration files or making other small changes
     to your app.
   features:
     multiple_choice:
@@ -217,7 +217,7 @@ extending_chapter9a:
   question: |
     Suppose we have a basic controller that extends
     `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`. In it, there's an action
-    that renders a template::
+    that renders a template:
 
     ```php
     class PizzaController extends AbstractController
@@ -300,10 +300,14 @@ extending_chapter10a:
   features:
     multiple_choice:
       choices:
-        a: An error will be thrown: at least one argument is required
-        b: It will print all known variables available at the line where it was called
-        c: Nothing, this call will be just ignored, i.e. it returns an empty result
-        d: System information will be printed
+        a: |
+          An error will be thrown: at least one argument is required
+        b: |
+          It will print all known variables available at the line where it was called
+        c: |
+          Nothing, this call will be just ignored, i.e. it returns an empty result
+        d: |
+          System information will be printed
       correct: a
 
 extending_chapter10b:
@@ -326,7 +330,8 @@ extending_chapter10b:
   features:
     multiple_choice:
       choices:
-        a: None: a pack is an "empty" library that exists just to trigger a recipe.
+        a: |
+          None: a pack is an "empty" library that exists just to trigger a recipe.
         b: |
           You'll only have 1 new entry in your `composer.json` file, but because
           a pack requires other libraries, it will actually install as many libraries
@@ -417,7 +422,7 @@ extending_chapter14:
     {% endblock %}
     ```
 
-    I now want to *extend* this block inside a child templatebut  without it
+    I now want to *extend* this block inside a child template but without it
     *removing* the parent block's content. How can I do that?
   explanation: |
     That's right! Adding `parent()` inside a block will print its parent's content so that

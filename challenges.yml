@@ -1,9 +1,11 @@
 extending_chapter1a:
   question: |
-    How do we create a simple Symfony application using the command line?
+    How can we create a shiny-new Symfony application?
   explanation: |
-    The recommended way to create Symfony applications is to use the `symfony` binary, but
-    you can also create a new project using Composer as well.
+    Yes! Both work. The recommended way to create a Symfony application is to use
+    the `symfony` binary... but it's really just a shortcut to run the
+    `composer create-project symfony/skeleton` command. It also initializes a
+    git repository automatically.
   features:
     multiple_choice:
       choices:
@@ -17,49 +19,44 @@ extending_chapter1a:
           Both A & C
       correct: d
 
-extending_chapter1b:
-  question: |
-    What package does not come with the default Symfony skeleton application?
-  explanation: |
-    `symfony/skeleton` does not require `symfony/http-kernel` package directly, but it requires the
-    `symfony/framework-bundle` package that in turn requires `symfony/http-kernel` and a few more.
-    So, with `symfony/skeleton` you get `symfony/http-kernel` out-of-the-box!
-  features:
-    multiple_choice:
-      choices:
-        a: |
-          `symfony/console`
-        b: |
-          `symfony/framework-bundle`
-        c: |
-          `symfony/http-kernel`
-        d: |
-          All packages listed above are included in `symfony/skeleton`
-      correct: d
-
 extending_chapter2a:
   question: |
-    Which file is the default front controller in Symfony 5 applications?
+    Which of the following is *not* true:
+  explanation: |
+    It *is* true that the `public/` directory is publicly available:
+    the user will be able to directly access (and download) files that live here.
+    But it is *not* true that you will put any PHP code here.
+
+    There is *one* PHP file already - `public/index.php` - but you probably
+    won't need to ever modify this. All the PHP code that *you* write will
+    go in `src/`.
   features:
     multiple_choice:
       choices:
         a: |
-          `public/app.php`
+          The `config/` directory holds configuration files.
         b: |
-          `public/index.php`
+          The `src/` directory holds (pretty much) all the PHP code you'll write.
         c: |
-          `src/Controller/DefaultController.php`
+          The `public/` directory holds all "public" PHP files that
+          you create for different pages.
         d: |
-          `composer.json`
+          The `vendor/` directory holds all the 3rd-party library coe.
       correct: b
 
 extending_chapter2b:
   question: |
-    What command does NOT run the local web server?
+    What command does NOT start a local web server?
   explanation: |
-    Both `symfony serve` and `symfony server:start` allow you to run the local web server.
-    The difference is that the last command does not block your terminal and runs it in
-    the background. You can achieve the same with `symfony serve -d`.
+    *All* of these commands will start a local web server, though using the
+    `symfony` binary will start a smarter server with https support.
+
+    `symfony serve` and `symfony server:start` are identical ways to run the
+    same command - you can see *all* of the commands available in the `symfony`
+    binary by running: `symfony list`.
+
+    The `-d` flag means: "run as a daemon". This is a great option because you'll
+    still have access to your terminal after starting the server.
   features:
     multiple_choice:
       choices:
@@ -68,41 +65,35 @@ extending_chapter2b:
         b: |
           `symfony server:start`
         c: |
-          `symfony serve`
+          `symfony serve -d`
         d: |
-          All commands above run the local web server
+          All commands run a local web server
       correct: d
 
 extending_chapter3a:
   question: |
-    Where is the default routes configurtation file located in Symfony 5 applciations?
-  features:
-    multiple_choice:
-      choices:
-        a: |
-          `src/routes.yaml`
-        b: |
-          `composer.json`
-        c: |
-          `public/index.php`
-        d: |
-          `config/routes.yaml`
-      correct: d
+    What must every controller function return?
+  explanation: |
+    The *only* rule of a Symfony controller is that it must return a Symfony
+    `Response` object. That's nice because, at the end of the day, our only
+    job as developers is to return a response to the user. But ultimately,
+    Symfony doesn't care if you render a template, generate some JSON or do
+    something else in order to create the `Response`.
 
-extending_chapter3b:
-  question: |
-    What should every controller function return?
+    Oh, and fun fact: in reality, it's not an *absolute* rule that a controller
+    must return a `Response` - there *is* a way around this. It's not important
+    now (and maybe not ever), but it *is* possible!
   features:
     multiple_choice:
       choices:
         a: |
-          Any content as a `string` type
+          A `string` type or `Stringable` object
         b: |
           An instance of `Symfony\Component\HttpFoundation\Response`
         c: |
           `null`
         d: |
-          An action
+          A template string or a `Response`.
       correct: b
 
 extending_chapter4:
@@ -114,7 +105,7 @@ extending_chapter4:
         a: |
           `@Route("/user/{username}")`
         b: |
-          `@Route("/blog/*.")`
+          `@Route("/user/*.")`
         c: |
           `@Route("/user/<username>")`
         d: |
@@ -133,22 +124,24 @@ extending_chapter5:
      multiple_choice:
        choices:
          a: |
-           `bin/console debug:routes`
+           `php bin/console debug:routes`
          b: |
-           `bin/console debug:router`
+           `php bin/console debug:router`
          c: |
-           `bin/console router:show`
+           `php bin/console router:show`
          d: |
-           `bin/console routes:list`
+           `php bin/console routes:list`
        correct: b
 
 extending_chapter6a:
   question: |
     Symfony Flex is:
   explanation: |
-    Correct! Symfony Flex is the way to manage Symfony applications, but it's implemented
-    as a simple Composer plugin that is based on Symfony Recipes, which are a set of automated
-    instructions to integrate third-party packages into Symfony applications.
+    Correct! Symfony Flex is a tool to help construct Symfony applications, but it's implemented
+    as a simple Composer plugin. The *biggest* super power of Flex is its recipe
+    system: when you install a package, if that package has a recipe, it will
+    configure itself by adding configuration file or making other small changes
+    to your app.
   features:
     multiple_choice:
       choices:
@@ -159,11 +152,11 @@ extending_chapter6a:
 
 extending_chapter6b:
   question: |
-    What package does correspond to the `security-check` alias in
-    `composer require security-check` when you use Symfony Flex?
+    What package corresponds to the `security-check` alias when you run?
+    `composer require security-check`?
   explanation: |
-    If you’re not sure, you can always check it on the `https://flex.symfony.com/` website.
-    In there you can search by package name or tag!
+    If you’re not sure, you can always check `https://flex.symfony.com/`.
+    In there, you can search by package name or tag!
   features:
     multiple_choice:
       choices:
@@ -179,23 +172,38 @@ extending_chapter6b:
 
 extending_chapter8a:
   question: |
-    Where are templates stored by default in a Symfony 5 application?
+    By default, Twig templates are stored in `templates/`. Why is this the
+    default directly?
+  explanation: |
+    The only reason that Twig looks for templates in the `templates/` directory
+    is because *our* `config/packages/twig.yaml` file has this path in it!
+
+    ```yml
+    # config/packages/twig.yaml
+    twig:
+        default_path: '%kernel.project_dir%/templates'
+    ```
+
+    And where did this file come from? It was added by the Twig recipe when
+    we installed that package. Want templates to live somewhere else? You have
+    full control.
   features:
     multiple_choice:
       choices:
-        a: app/Resources/views/
-        b: app/templates/
-        c: templates/
-        d: src/Resources/views/
-      correct: c
+        a: The `templates/` directory is hardcoded as the default path inside TwigBundle.
+        b: The `templates/` directory is configured in `config/packages/twig.yaml`.
+        c: The `templates/` is specified when you render a template.
+        d: Iternally, Twig always defaults to first looking for a `templates/` directory before trying other paths.
+      correct: b
 
 extending_chapter8b:
   question: |
-    What is the correct naming convention for a Twig HTML page?
+    What is the correct naming convention for a Twig template that will render HTML?
   explanation: |
     Correct! The reason we use the two extensions after the template name is to remind
     us that this `twig` file will be processed into something we intend to show
-    as `HTML`, for example, in a web page!
+    as `html`, for example, in a web page! But otherwise, the file extension
+    doesn't really matter.
   features:
     multiple_choice:
       choices:
@@ -205,68 +213,50 @@ extending_chapter8b:
         d: layout.twig.html
       correct: c
 
-extending_chapter8c:
-  question: |
-    Suppose we have a project that has a `data/` folder that exists at the root.
-    How can we build an absolute path in a Yaml configuration file that points to such path?
-  explanation: |
-    `%kernel.project_dir%` is a special configuration parameter that returns the absolute path of
-    the root directory of your Symfony project. You can use that to build custom paths relative to
-    the project’s root directory!
-  features:
-    multiple_choice:
-      choices:
-        a: |
-          `./data`
-        b: |
-          `%kernel.project_dir%/data`
-        c: |
-          `%kernel.root_dir%/data`
-        d: |
-          `%kernel.data_dir%`
-      correct: b
-
 extending_chapter9a:
   question: |
     Suppose we have a basic controller that extends
     `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`. In it, there's an action
-    that renders a template. The controller
-    would look like this:
+    that renders a template::
 
     ```php
-    class MyController extends AbstractController
+    class PizzaController extends AbstractController
     {
         /**
-         * @Route("/mypage")
+         * @Route("/pizza/order")
          */
-        public function myPage()
+        public function orderPizza()
         {
-            return $this->render('myPAge.html.twig');
+            return $this->render('pizza/order.html.twig');
         }
     }
     ```
 
-    In this case, what does `$this->render` return?
-  explanation:
-    A Symfony Controller route action is a PHP function that you create that reads
-      information from the Request object and creates and returns a Response object.
-      It should always return an instance of `Symfony\Component\HttpFoundation\Response`
+    In this case, what does `$this->render()` return?
+  explanation: |
+    Remmeber: a Symfony controller must always return a `Response` object. So,
+    even without looking, we can assume that `$this->render()` must also do that.
+    And... it does! It renders the template and puts the string into a `Response`
+    object for convenience.
   features:
     multiple_choice:
       choices:
         a: |
-          An HTML code as a string that was rendered with Twig service
+          The string HTML from the rendered template.
         b: |
           An object of type `Symfony\Component\HttpFoundation\Response`
         c: |
-          An instance of a Twig template
+          An instance of `TwigTemplate`
         d: |
-          Depends on specified flags on `render()` method call
+          It varies based on the flags passed to `render()`
       correct: b
 
 extending_chapter9b:
   question: |
     Which of this lines is NOT correct Twig syntax?
+  explanation: |
+    Our attempt to confuse was unsuccessful! The `{* comment *}` syntax is
+    *totally* invalid. All the others will work.
   features:
     multiple_choice:
       choices:
@@ -285,11 +275,8 @@ extending_chapter9c:
     What is the correct Twig syntax to iterate over an array?
   explanation: |
     To iterate over an array in Twig, you need to use the `{% for comment in comments %}` syntax.
-
-    > Similar to PHP, where you can get array keys using the syntax
-    > `foreach ($comments as $index => $comment)`, you can use the Twig form:
-    >   `{% for index, comment in comments %}`
-    > where `index` is the key of the `comment` value.
+    The `index,` part of `{% for index, comment in comments %}` is optional: you
+    only need that if you *also* need access to the index.
   features:
     multiple_choice:
       choices:
@@ -308,12 +295,12 @@ extending_chapter10a:
     What will happen if you call the `dump()` PHP function with out any arguments?
   explanation: |
     That's right. Calling it without arguments will print all the available variables *only*
-    when you call it inside a Twig template! If you call this function in a PHP file -
+    when you call it inside a Twig template! If you call this function in a PHP file,
     it will throw an error: `Too few arguments to function dump(), 0 passed and exactly 1 expected`.
   features:
     multiple_choice:
       choices:
-        a: An error will be thrown as at least one argument is required
+        a: An error will be thrown: at least one argument is required
         b: It will print all known variables available at the line where it was called
         c: Nothing, this call will be just ignored, i.e. it returns an empty result
         d: System information will be printed
@@ -321,27 +308,46 @@ extending_chapter10a:
 
 extending_chapter10b:
   question: |
-    What can the Symfony Profiler NOT help you with out-of-the-box?
+    After running `composer require` to install a Symfony "pack", how many new
+    libraries will you have in your app?
   explanation: |
-    The Symfony Profiler and the Web Debug Toolbar that you can see when you are in `dev` mode at
-    the bottom of any page are your best friends! They give a lot of useful information.
+    A "pack" is *just* a shortcut that allows us to `composer require` one library
+    but *get* multiple libraries. For example, `composer require profiler` (which
+    is an alias to symfony/profiler-pack) is a shortcut to
+    [install 3 packages](https://github.com/symfony/profiler-pack/blob/f8fddff65d774087e250fd74c36b2fde70db6cfb/composer.json).
+
+    So... there is *almost* nothing special about "packs": they're just packages
+    that require other packages for convience. The *one* special thing is this:
+    when Flex detects that you're installing a pack, instead of adding
+    `symfony/profiler-pack` to your `composer.json` file, it reads the 3
+    dependencies of that pack, and adds *those* 3 libraries instead. The end-result
+    is the same (you get the 3 packages you want), but now you can manage the
+    versions of each package individually.
   features:
     multiple_choice:
       choices:
-        a: Explain the performance of your application within the execution timeline
-        b: See logs that were created during a request
-        c: Know what events were dispatched during a request
-        d: See what translations were used during a request
-        e: Symfony Profiler can help you with everything listed above
-      correct: e
+        a: None: a pack is an "empty" library that exists just to trigger a recipe.
+        b: |
+          You'll only have 1 new entry in your `composer.json` file, but because
+          a pack requires other libraries, it will actually install as many libraries
+          as the pack requires.
+        c: |
+          You'll have one new entry in `composer.json` for each library that the
+          pack requires (but you won't have the *actual* pack itself there)
+      correct: c
 
 extending_chapter11:
   question: |
-    Suppose we are working on a Twig template and we need to add a link that points to the file
-    `checkout.css`, which is stored at `public/css`. How would you do that?
+    Suppose we are working on a Twig template and we need to add a CSS link to
+    a `checkout.css` file that lives at `public/css`. How would you do that?
   explanation: |
-    It's always a bad idea to hardcode relative paths in your templates. Using the `asset()` Twig
-    function will help you build *any* link relative to the `public/` directory correctly.
+    The `public/` directory is the document root, which means all paths should
+    be *relative* to that. Using `/public/css/checkout.css` *would* work, but
+    we recommend using the `asset()` function instead. The end-result is the same,
+    but it gives you a few subtle advantages:
+
+    A) The ability to configure a global CDN
+    B) The ability to deploy your site to a sub-directory of a domain.
   features:
     multiple_choice:
       choices:
@@ -350,8 +356,9 @@ extending_chapter11:
         b: |
           `<link href="{{ css('checkout.css') }}">`
         c: |
-          `<link href="public/css/checkout.css">`
-        d: Both A & C
+          `<link href="/public/css/checkout.css">`
+        d: |
+          `<link href="/css/checkout.css">`
       correct: a
 
 extending_chapter12:
@@ -374,8 +381,19 @@ extending_chapter12:
 extending_chapter13:
   question: |
     Suppose I have a simple controller that extends
-    `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`. This time, in one of its actions,
+    `AbstractController`. This time, in one of its actions,
     I want to return a JSON response instead of HTML. What would the return statement look like?
+  explanation: |
+    A JSON response is... really no different than returning an HTML Response,
+    except that your content is JSON and you'll also want to set the
+    `Content-Type` response header to `application/json`.
+
+    The `JsonResponse` class *extends* the normal `Response` class and makes it
+    easy to set JSON content and the `Content-Type` header. The `$this->json()`
+    method is just a shortcut to create that same object.
+
+    Why doesn't `return json_encode()` work? Because your controller must always
+    return a `Response` object!
   features:
     multiple_choice:
       choices:
@@ -399,11 +417,11 @@ extending_chapter14:
     {% endblock %}
     ```
 
-    I now want to *extend* it inside a child template without it removing the parent's content.
-    What is the correct way to do that?
+    I now want to *extend* this block inside a child templatebut  without it
+    *removing* the parent block's content. How can I do that?
   explanation: |
-    That's right! Adding `parent()` inside a block will print its parent's contents so that
-    they don't get replaced!
+    That's right! Adding `parent()` inside a block will print its parent's content so that
+    it doesn't get replaced!
   features:
     multiple_choice:
       choices:
@@ -434,33 +452,14 @@ extending_chapter15a:
           `@Route("/api/articles/{id}", "GET")`
       correct: b
 
-extending_chapter15b:
-  question: |
-    Which of these routes will match the request if you open the following URL in a browser?
-    `https://localhost/admin/user/victor`
-  explanation: |
-    When you open a page in a browser, the browser sends a simple GET request. POST requests are more
-    complex though. You can send them via AJAX or using HTML forms setting their `action` atribute to `POST`.
-  features:
-    multiple_choice:
-      choices:
-        a: |
-          @Route("/user/{victor}")
-        b: |
-          @Route("/admin/user/{username}", methods="POST")
-        c: |
-          @Route("/admin/user/{username}", methods="GET")
-        d: |
-          Both B & C
-      correct: c
-
 extending_chapter16:
   question: |
-    What type hint do you need to use to inject a Twig service into your controller’s endpoint
-    using the service's autowiring feature to be able to render tempaltes?
+    What type-hint do you need to use to inject a Twig service into your controller
+    using autowiring?
   explanation: |
     That's right! `\Twig\Environment` is the correct service name for getting the Twig instance
-    to render templates.
+    to render templates. You can find this - and a whole list of type-hints that
+    you can use - by running `php bin/console debug:autowiring`.
   features:
     multiple_choice:
       choices:
@@ -476,19 +475,22 @@ extending_chapter16:
 
 extending_chapter18:
   question: |
-    What is the correct way to run Webpack Encore?
+    How can you *execute* Encore in "watch" mode?
   explanation: |
     `yarn watch` is just a shortcut for running `yarn run encore dev --watch`. You can see it defined
     in your `package.json`.
+
+    And `yarn run encore` is just a shortcut for using `node` to execute a binary
+    that lives at `node_modules/.bin/encore`.
   features:
     multiple_choice:
       choices:
         a: |
           `yarn watch`
         b: |
-          `encore run`
+          `node node_modules/.bin/encore dev --watch`
         c: |
           `yarn run encore dev --watch`
         d: |
-          Both A & C
+          All of these work!
       correct: d

@@ -207,10 +207,14 @@ extending_chapter8b:
   features:
     multiple_choice:
       choices:
-        a: `layout.html`
-        b: `layout.twig`
-        c: `layout.html.twig`
-        d: `layout.twig.html`
+        a: |
+          `layout.html`
+        b: |
+          `layout.twig`
+        c: |
+          `layout.html.twig`
+        d: |
+          `layout.twig.html`
       correct: c
 
 extending_chapter9a:

@@ -5,7 +5,7 @@ extending_chapter1a:
     Yes! Both work. The recommended way to create a Symfony application is to use
     the `symfony` binary... but it's really just a shortcut to run the
     `composer create-project symfony/skeleton` command. It also initializes a
-    git repository automatically.
+    Git repository automatically.
   features:
     multiple_choice:
       choices:
@@ -16,12 +16,12 @@ extending_chapter1a:
         c: |
           `composer create-project symfony/skeleton my_project`
         d: |
-          Both A & C
+          Both A) & C) are correct
       correct: d
 
 extending_chapter2a:
   question: |
-    Which of the following is *not* true:
+    Which of the following is NOT true:
   explanation: |
     It *is* true that the `public/` directory is publicly available:
     the user will be able to directly access (and download) files that live here.
@@ -49,7 +49,7 @@ extending_chapter2b:
     What command does NOT start a local web server?
   explanation: |
     *All* of these commands will start a local web server, though using the
-    `symfony` binary will start a smarter server with https support.
+    `symfony` binary will start a smarter server with HTTPS support.
 
     `symfony serve` and `symfony server:start` are identical ways to run the
     same command - you can see *all* of the commands available in the `symfony`
@@ -67,7 +67,7 @@ extending_chapter2b:
         c: |
           `symfony serve -d`
         d: |
-          All commands run a local web server
+          All commands above run a local web server
       correct: d
 
 extending_chapter3a:
@@ -152,10 +152,10 @@ extending_chapter6a:
 
 extending_chapter6b:
   question: |
-    What package corresponds to the `security-check` alias when you run?
+    What package corresponds to the `security-check` alias when you run
     `composer require security-check`?
   explanation: |
-    If you’re not sure, you can always check `https://flex.symfony.com/`.
+    If you’re not sure, you can always check https://flex.symfony.com/.
     In there, you can search by package name or tag!
   features:
     multiple_choice:
@@ -201,16 +201,16 @@ extending_chapter8b:
     What is the correct naming convention for a Twig template that will render HTML?
   explanation: |
     Correct! The reason we use the two extensions after the template name is to remind
-    us that this `twig` file will be processed into something we intend to show
-    as `html`, for example, in a web page! But otherwise, the file extension
+    us that this *Twig* file will be processed into something we intend to show
+    as *HTML*, for example, in a web page! But otherwise, the file extension
     doesn't really matter.
   features:
     multiple_choice:
       choices:
-        a: layout.html
-        b: layout.twig
-        c: layout.html.twig
-        d: layout.twig.html
+        a: `layout.html`
+        b: `layout.twig`
+        c: `layout.html.twig`
+        d: `layout.twig.html`
       correct: c
 
 extending_chapter9a:
@@ -253,7 +253,7 @@ extending_chapter9a:
 
 extending_chapter9b:
   question: |
-    Which of this lines is NOT correct Twig syntax?
+    Which of these lines is NOT correct Twig syntax?
   explanation: |
     Our attempt to confuse was unsuccessful! The `{* comment *}` syntax is
     *totally* invalid. All the others will work.
@@ -292,16 +292,18 @@ extending_chapter9c:
 
 extending_chapter10a:
   question: |
-    What will happen if you call the `dump()` PHP function with out any arguments?
+    What will happen if you call the `dump()` PHP function without any arguments?
   explanation: |
     That's right. Calling it without arguments will print all the available variables *only*
     when you call it inside a Twig template! If you call this function in a PHP file,
-    it will throw an error: `Too few arguments to function dump(), 0 passed and exactly 1 expected`.
+    it will throw an error:
+
+    > Too few arguments to function `dump()`, 0 passed and exactly 1 expected
   features:
     multiple_choice:
       choices:
         a: |
-          An error will be thrown: at least one argument is required
+          An error will be thrown: "At least one argument is required"
         b: |
           It will print all known variables available at the line where it was called
         c: |
@@ -317,8 +319,8 @@ extending_chapter10b:
   explanation: |
     A "pack" is *just* a shortcut that allows us to `composer require` one library
     but *get* multiple libraries. For example, `composer require profiler` (which
-    is an alias to symfony/profiler-pack) is a shortcut to
-    [install 3 packages](https://github.com/symfony/profiler-pack/blob/f8fddff65d774087e250fd74c36b2fde70db6cfb/composer.json).
+    is an alias to `symfony/profiler-pack`) is a shortcut to
+    [install 3 packages](https://github.com/symfony/profiler-pack/blob/f8fddff65d774087e250fd74c36b2fde70db6cfb/composer.json#L8-L10).
 
     So... there is *almost* nothing special about "packs": they're just packages
     that require other packages for convience. The *one* special thing is this:
@@ -344,15 +346,15 @@ extending_chapter10b:
 extending_chapter11:
   question: |
     Suppose we are working on a Twig template and we need to add a CSS link to
-    a `checkout.css` file that lives at `public/css`. How would you do that?
+    a `checkout.css` file that lives at `public/css/`. How would you do that?
   explanation: |
     The `public/` directory is the document root, which means all paths should
     be *relative* to that. Using `/public/css/checkout.css` *would* work, but
     we recommend using the `asset()` function instead. The end-result is the same,
     but it gives you a few subtle advantages:
 
-    A) The ability to configure a global CDN
-    B) The ability to deploy your site to a sub-directory of a domain.
+    - A) The ability to configure a global CDN
+    - B) The ability to deploy your site to a sub-directory of a domain
   features:
     multiple_choice:
       choices:
@@ -386,10 +388,11 @@ extending_chapter12:
 extending_chapter13:
   question: |
     Suppose I have a simple controller that extends
-    `AbstractController`. This time, in one of its actions,
-    I want to return a JSON response instead of HTML. What would the return statement look like?
+    `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`.
+    This time, in one of its actions, I want to return a JSON response
+    instead of HTML. What would the return statement look like?
   explanation: |
-    A JSON response is... really no different than returning an HTML Response,
+    A JSON response is... really no different than returning an HTML response,
     except that your content is JSON and you'll also want to set the
     `Content-Type` response header to `application/json`.
 
@@ -409,7 +412,7 @@ extending_chapter13:
         c: |
           `return json_encode([/* … */])`
         d: |
-          Both A & B are correct
+          Both A) & B) are correct
       correct: d
 
 extending_chapter14:
@@ -425,8 +428,8 @@ extending_chapter14:
     I now want to *extend* this block inside a child template but without it
     *removing* the parent block's content. How can I do that?
   explanation: |
-    That's right! Adding `parent()` inside a block will print its parent's content so that
-    it doesn't get replaced!
+    That's right! Adding `{{ parent() }}` inside a block in the child template
+    will print its parent's content so that it doesn't get replaced!
   features:
     multiple_choice:
       choices:
@@ -473,9 +476,9 @@ extending_chapter16:
         b: |
           `public function myEndpoint(\Twig\Template $twig)`
         c: |
-          `public function myEndpoint(Twig\Twig $twig)`
+          `public function myEndpoint(\Twig\Twig $twig)`
         d: |
-          `public function myEndpoint(Twig\Renderer $twig)`
+          `public function myEndpoint(\Twig\Renderer $twig)`
       correct: a
 
 extending_chapter18:
@@ -485,8 +488,8 @@ extending_chapter18:
     `yarn watch` is just a shortcut for running `yarn run encore dev --watch`. You can see it defined
     in your `package.json`.
 
-    And `yarn run encore` is just a shortcut for using `node` to execute a binary
-    that lives at `node_modules/.bin/encore`.
+    And `yarn run encore` is just a shortcut for using Node.js to execute `encore` binary
+    that lives at `node_modules/.bin/`.
   features:
     multiple_choice:
       choices:

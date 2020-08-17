@@ -118,7 +118,7 @@ extending_chapter5:
   explanation: |
     Symfony's `bin/console` is very useful!
 
-    > Run `bin/console list debug` to see the list of all commands avialable that
+    > Run `bin/console list debug` to see the list of all commands available that
     > could help you with debugging.
   features:
      multiple_choice:

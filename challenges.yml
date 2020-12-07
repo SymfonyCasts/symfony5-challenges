@@ -173,7 +173,7 @@ extending_chapter6b:
 extending_chapter8a:
   question: |
     By default, Twig templates are stored in `templates/`. Why is this the
-    default directly?
+    default directory?
   explanation: |
     The only reason that Twig looks for templates in the `templates/` directory
     is because *our* `config/packages/twig.yaml` file has this path in it!

@@ -238,7 +238,7 @@ extending_chapter9a:
 
     In this case, what does `$this->render()` return?
   explanation: |
-    Remmeber: a Symfony controller must always return a `Response` object. So,
+    Remember: a Symfony controller must always return a `Response` object. So,
     even without looking, we can assume that `$this->render()` must also do that.
     And... it does! It renders the template and puts the string into a `Response`
     object for convenience.

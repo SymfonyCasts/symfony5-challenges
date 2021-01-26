@@ -193,7 +193,7 @@ extending_chapter8a:
         a: The `templates/` directory is hardcoded as the default path inside TwigBundle.
         b: The `templates/` directory is configured in `config/packages/twig.yaml`.
         c: The `templates/` is specified when you render a template.
-        d: Iternally, Twig always defaults to first looking for a `templates/` directory before trying other paths.
+        d: Internally, Twig always defaults to first looking for a `templates/` directory before trying other paths.
       correct: b
 
 extending_chapter8b:

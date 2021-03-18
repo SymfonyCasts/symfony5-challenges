@@ -41,7 +41,7 @@ extending_chapter2a:
           The `public/` directory holds all "public" PHP files that
           you create for different pages.
         d: |
-          The `vendor/` directory holds all the 3rd-party library coe.
+          The `vendor/` directory holds all the 3rd-party library code.
       correct: c
 
 extending_chapter2b:

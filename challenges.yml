@@ -74,7 +74,7 @@ extending_chapter3a:
   question: |
     What must every controller function return?
   explanation: |
-    The *only* rule of a Symfony controller is that it must return a Symfony
+    The *only* rule of a Symfony controller method (or "action") is that it must return a Symfony
     `Response` object. That's nice because, at the end of the day, our only
     job as developers is to return a response to the user. But ultimately,
     Symfony doesn't care if you render a template, generate some JSON or do
